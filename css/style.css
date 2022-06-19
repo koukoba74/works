@@ -115,7 +115,7 @@ li {
     max-width: 900px;
     margin: 0 auto;
     background-color: #fff;
-    padding: 10%;
+    padding: 5% 10%;
     border-radius: 10px;
     position: relative;
     text-align: left;
@@ -177,6 +177,10 @@ li {
     display: block;
 }
 
+.works_content {
+    max-width: 550px;
+    margin: 0 auto;
+}
 
 .category {
     color: #004098;
