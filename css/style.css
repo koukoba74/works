@@ -23,14 +23,13 @@ li {
 }
 
 #visual, #works, #skills {
-    position: relative;
     width: 100%;
     margin: 0 auto;
     background: linear-gradient(90deg, #00479D 0%, #00479D 30%, #01a5e1 100%);
 }
 
-#visual {
-    padding-top: min(70%, 850px);
+#works, #skills {
+    position: relative;
 }
 
 #visual, #works {
@@ -50,21 +49,23 @@ li {
 }
 
 .visual_wrapper {
-    max-width: 1080px;
-    max-height: 650px;
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    height: 700px;
 }
 
 .main_visual {
     position: absolute;
+    top: 50px;
     right: 0;
-    bottom: 0;
     width: 70%;
     height: 85%;
 }
 
 .bg_wrapper {
-    width: 85%;
-    height: 85%;
+    width: 100%;
+    height: 100%;
     max-height: 700px;
     background-color: #fff;
     border-radius: 10px;
@@ -82,11 +83,10 @@ li {
 .catch_bg {
     position: absolute!important; /* importantを指定しないと崩れる */
     /* top: 50%; */
-    top: 22%; /* アニメーション時の実装 */
-    transform: translateY(-48%);
+    top: 15%; /* アニメーション時の実装 */
     left: 5%;
-    width: 40%;
-    padding-top: min(40%, 500px);
+    width: 100%;
+    height: 100%;
     max-width: 500px;
     max-height: 500px;
     background-color: #ecf8fc;
@@ -691,17 +691,23 @@ li {
 }
 
 
-@media screen and (min-width: 768px) {
-    .works_content ul li {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 10px;        
-    }
-}
-
-
-
 @media screen and (max-width: 768px) {
+
+    .visual_wrapper {
+        width: 90%;
+        height: 400px;
+    }
+
+    .catch_bg {
+        width: 250px;
+        height: 250px;
+        top: 20%;
+    }
+
+    .bg_wrapper {
+        max-height: 400px;
+        height: 90%;
+    }
 
     .main_catch {
         font-size: 2.4rem;
@@ -722,6 +728,11 @@ li {
         left: 25px;
     }
 
+    .skills_container::before {
+        bottom: -25px;
+        right: 25px;
+    }
+
     .section_title {
         font-size: 2rem;
         text-align: center;
@@ -737,6 +748,7 @@ li {
     }
 
     #skills {
-        padding: 25px 50px 50px 50px;
+        padding: 12.5px 25px 25px 25px;
     }
+
 }
