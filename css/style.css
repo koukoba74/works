@@ -1,0 +1,738 @@
+@charset "UTF-8";
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    width: 100%;
+    margin: 0 auto;
+    color: #333;
+    font-size: 1.6rem;
+    font-family: "Hiragino Kaku Gothic ProN" , Meiryo, sans-serif;
+    position: relative;
+    z-index: -3;
+}
+    
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+#visual, #works, #skills {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    background: linear-gradient(90deg, #00479D 0%, #00479D 30%, #01a5e1 100%);
+}
+
+#visual {
+    padding-top: min(70%, 850px);
+}
+
+#visual, #works {
+    z-index: -2;
+}
+
+#skills {
+    z-index: -3;
+}
+
+#works {
+    padding: 100px 100px 50px 100px;
+}
+
+#skills {
+    padding: 50px 100px 100px 100px;
+}
+
+.visual_wrapper {
+    max-width: 1080px;
+    max-height: 650px;
+}
+
+.main_visual {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 70%;
+    height: 85%;
+}
+
+.bg_wrapper {
+    width: 85%;
+    height: 85%;
+    max-height: 700px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.main_visual img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.catch_bg {
+    position: absolute!important; /* importantを指定しないと崩れる */
+    /* top: 50%; */
+    top: 22%; /* アニメーション時の実装 */
+    transform: translateY(-48%);
+    left: 5%;
+    width: 40%;
+    padding-top: min(40%, 500px);
+    max-width: 500px;
+    max-height: 500px;
+    background-color: #ecf8fc;
+    border-radius: 10px;
+}
+
+.main_catch {
+    font-size: 6rem;
+    position: absolute!important;
+    top: 45%;
+    left: 10%;
+}
+
+.h1_border {
+    position: absolute!important;
+    top: calc(45% + 60px);
+    left: 10%;
+    width: 120px;
+    height: 16px;
+    background: #004098;
+}
+
+.works_container,
+.modal_works_container {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 10%;
+    border-radius: 10px;
+    position: relative;
+    text-align: left;
+}
+
+
+.skills_container {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 5%;
+    border-radius: 10px;
+    position: relative;
+    text-align: left;
+}
+
+.modal_works_container {
+    padding-bottom: 10%;
+}
+
+.works_container::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: 50px;
+    width: 100%;
+    height: 100%;
+    background-color: #ecf8fc;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.skills_container::before {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    right: 50px;
+    width: 100%;
+    height: 100%;
+    background-color: #ecf8fc;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.section_title {
+    font-size: 3.5rem;
+    color: #004098;
+    margin-bottom: 30px;
+    width: 140px;
+    height: 50px;
+}
+
+.h2_border {
+    width: 70px;
+    height: 10px;
+    background-color: #004098;
+    margin-top: 5px;
+    display: block;
+}
+
+
+.category {
+    color: #004098;
+    border: 1px solid #004098;
+    font-size: 1rem;
+    padding: 2px 4px;
+}
+
+.works_content ul {
+    margin-bottom: 20px;
+}
+
+.works_content ul li {
+    padding: 2px 0;
+}
+
+.works_content ul li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;        
+}
+
+.works_content ul li p {
+    font-size: 1.2rem;
+    line-height: 2;
+    margin-top: 5px;
+}
+
+.date {
+    display: block;
+    align-self: center;
+    margin-bottom: 20px;
+}
+
+.more_btn {
+    width: 200px;
+    height: 80px;
+    margin: 30px auto 0;
+    background: linear-gradient(90deg, #31A6D8 0%, #64D0EF 100%);
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    transition: ease 2s;
+}
+
+.more_btn span {
+    color: #fff;
+    font-weight: bold;
+
+    position: relative;
+    z-index: 3;
+}
+
+.btn_bg_flow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    /* left: -10%; */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+
+    background-color: #004098;
+
+    width: 120%;
+    height: 100%;
+
+    transform: skewX(-25deg) scale(0,1);
+    
+    transform-origin: right top;
+    /* transition: all 0.8s ease-in-out; */
+    transition: transform 0.5s;
+
+}
+
+.btn_bg_flow:hover::before {
+    /* transition: all 0.8s ease-in-out; */
+    transform: skewX(-25deg) scale(1,1);
+    
+    transform-origin: left top;
+}
+
+/* @keyframes flowanime {
+    
+    100% {
+        left: 10%;
+    }
+} */
+
+.skills_flex_container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.skills_flex_item {
+    width: 30%;
+    width: 300px;
+    height: 300px;
+    margin: 16px auto;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item_skill {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.skills_title {
+    height: 25px;
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+.other_title {
+    height: 25px;
+    font-size: 2rem;
+    margin: 10px 0 15px;
+    color: #004098;
+}
+
+.item_skill img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    max-height: 250px;
+    object-fit: scale-down;
+    border-radius: 10px;
+}
+
+.skills_flex_item ul li {
+    line-height: 2;
+}
+
+/*モーダル本体の指定 + モーダル外側の背景の指定*/
+.modal-container{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background: rgba(0,0,0,50%);
+	padding: 40px 20px;
+	overflow: auto;
+	opacity: 0;
+	visibility: hidden;
+	transition: .3s;
+    box-sizing: border-box;
+    z-index: 5;
+}
+/*モーダル本体の擬似要素の指定*/
+.modal-container:before{
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
+}
+/*モーダル本体に「active」クラス付与した時のスタイル*/
+.modal-container.active{
+	opacity: 1;
+	visibility: visible;
+}
+/*モーダル枠の指定*/
+.modal-body{
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	max-width: 900px;
+	width: 90%;
+}
+/*モーダルを閉じるボタンの指定*/
+.modal-close{
+	position: absolute;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	top: -40px;
+	right: -40px;
+	width: 40px;
+	height: 40px;
+	font-size: 40px;
+	color: #fff;
+	cursor: pointer;
+}
+
+.mt-15 {
+    margin-top: 15px;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+/* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+.bgLRextendTrigger,
+.bgLRextendDelayTrigger,
+.bgappearTrigger,
+.fadeUpTrigger,
+.flipLeftTrigger,
+.flipRightTrigger,
+.slideLeftInTrigger,
+.slideRightInTrigger,
+.slideLeftInDelayTrigger,
+.slideRightInDelayTrigger,
+.floatUpTrigger{
+    opacity: 0;
+}
+
+/*　シャッ（左からめくれる）*/
+.bgextend{
+	animation-name:bgextendAnimeBase;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+	position: relative;
+	overflow: hidden;/*　はみ出た色要素を隠す　*/
+}
+
+@keyframes bgextendAnimeBase{
+	from {
+		opacity:0;
+	}
+
+	to {
+		opacity:1;  
+	}
+}
+
+/* 左から右にめくれて消える動き */
+.bgLRextend::before{
+	animation-name:bgLRextendAnime;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+    animation-timing-function: ease;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #004098;/*伸びる背景色の設定*/
+}
+@keyframes bgLRextendAnime{
+	0% {
+		transform-origin:left;
+		transform:scaleX(0);
+	}
+	50% {
+		transform-origin:left;
+		transform:scaleX(1);
+	}
+	50.001% {
+		transform-origin:right;
+	}
+	100% {
+		transform-origin:right;
+		transform:scaleX(0);
+	}
+}
+
+/* めくれるアニメーションを遅らせる */
+
+/*　シャッ（左から）*/
+.bgextendDelay{
+	animation-name:bgextendDelayAnimeBase;
+	animation-duration:1s;
+    animation-delay: 1s;
+	animation-fill-mode:forwards;
+	position: relative;
+	overflow: hidden;/*　はみ出た色要素を隠す　*/
+}
+
+@keyframes bgextendDelayAnimeBase{
+	from {
+		opacity:0;
+	}
+
+	to {
+		opacity:1;  
+	}
+}
+
+/* 左から右に消える動き */
+.bgLRextendDelay::before{
+	animation-name:bgLRextendDelayAnime;
+	animation-duration:1s;
+    animation-delay: 1s;
+	animation-fill-mode:forwards;
+    animation-timing-function: ease;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #004098;/*伸びる背景色の設定*/
+    opacity: 0;
+}
+@keyframes bgLRextendDelayAnime{
+	0% {
+		transform-origin:left;
+		transform:scaleX(0);
+        opacity: 1;
+	}
+	50% {
+		transform-origin:left;
+		transform:scaleX(1);
+	}
+	50.001% {
+		transform-origin:right;
+	}
+	100% {
+		transform-origin:right;
+		transform:scaleX(0);
+        opacity: 1;
+	}
+}
+
+
+/* 透明から浮かぶ */
+.bgappear{
+	animation-name:bgextendAnimeSecond;
+	animation-duration:1s;
+	animation-delay: 0.6s;
+	animation-fill-mode:forwards;
+}
+
+@keyframes bgextendAnimeSecond{
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/* 下から上にフェードアップ*/
+
+.fadeUp{
+	animation-name: fadeUpAnime;
+	animation-duration:1.5s;
+	animation-fill-mode:forwards;
+    animation-timing-function: ease;
+}
+
+@keyframes fadeUpAnime{
+	from {
+		opacity: 0;
+		transform: translateY(100px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+
+/* 左回転フェード */
+.flipLeft{
+	animation-name: flipLeftAnime;
+	animation-duration:1.5s;
+	animation-fill-mode:forwards;
+	perspective-origin: left center;
+}
+
+@keyframes flipLeftAnime{
+	from {
+        transform: perspective(600px) translate3d(0, 0, 0) rotateY(30deg);
+        opacity: 0;
+	}
+
+	to {
+        transform: perspective(600px) translate3d(0, 0, 0) rotateY(0deg);
+        opacity: 1;
+	}
+}
+
+
+/* 左からスライドイン */
+.slideLeftIn {
+	animation-name: slideLeftInAnime;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes slideLeftInAnime {
+	from {
+		opacity: 0;
+		transform: translateX(-1000px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.slideLeftInDelay {
+	animation-name: slideLeftInDelayAnime;
+	animation-duration: 1.5s;
+    animation-delay: 0.5s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes slideLeftInDelayAnime {
+	from {
+		opacity: 0;
+		transform: translateX(-1000px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+
+/* 右からフェードイン */
+.flipRight{
+    animation-name: flipRightAnime;
+    animation-duration:0.5s;
+    animation-fill-mode:forwards;
+    perspective-origin: right center;
+}
+	
+@keyframes flipRightAnime{
+    from {
+        transform: perspective(600px) translate3d(0, 0, 0) rotateY(-30deg);
+        opacity: 0;
+	}
+	
+    to {
+        transform: perspective(600px) translate3d(0, 0, 0) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+/* 右から */
+.slideRightIn {
+	animation-name: slideRightInAnime;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+@keyframes slideRightInAnime {
+	from {
+		opacity: 0;
+		transform: translateX(1000px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* 右からDelay */
+.slideRightInDelay {
+	animation-name: slideRightInDelayAnime;
+	animation-duration: 1.5s;
+    animation-delay: 0.5s;
+	animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+@keyframes slideRightInDelayAnime {
+	from {
+		opacity: 0;
+		transform: translateX(1000px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+
+.floatUp {
+	animation-name: floatUpAnime;
+	animation-duration: 5s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes floatUpAnime {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+
+@media screen and (min-width: 768px) {
+    .works_content ul li {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;        
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+    .main_catch {
+        font-size: 2.4rem;
+    }
+
+    .h1_border {
+        top: calc(45% + 24px);
+        width: 48px;
+        height: 6.4px;
+    }
+
+    #works {
+        padding: 25px 25px 12.5px 25px;
+    }
+
+    .works_container::before {
+        top: -25px;
+        left: 25px;
+    }
+
+    .section_title {
+        font-size: 2rem;
+        text-align: center;
+        margin: 0 auto 15px;
+        width: 80px;
+        height: 30px;
+    }
+
+    .h2_border {
+        width: 80px;
+        height: 3px;
+        margin-top: 3px;
+    }
+
+    #skills {
+        padding: 25px 50px 50px 50px;
+    }
+}
